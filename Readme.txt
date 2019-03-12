@@ -55,3 +55,5 @@ java -Djava.library.path=./TestJNIPrimitive/x64/Debug TestJNIPrimitive
 java -Djava.library.path=./TestJNIString/x64/Debug TestJNIString
 
 java -Djava.library.path=./TestJNIPrimitiveArray/x64/Debug TestJNIPrimitiveArray
+
+java -Djava.library.path=./TestJNIInstanceVariable/x64/Debug TestJNIInstanceVariable
