@@ -6,18 +6,19 @@ static jclass classInteger;
 static jmethodID midIntegerInit;
 
 jobject getInteger(JNIEnv *env, jobject thisObj, jint number) {
-    printf("%s - env[%p]\n", __func__, env);
+    //printf("%s - env[%p]\n", __func__, env);
 
     // Get a class reference for java.lang.Integer if missing
-    if (NULL == classInteger) {
-        printf("Find java.lang.Integer\n");
-        classInteger = (*env)->FindClass(env, "java/lang/Integer");
-    }
+   if (NULL == classInteger) {
+      printf("Find java.lang.Integer\n");
+      // FindClass returns a local reference
+      jclass classIntegerLocal = (*env)->FindClass(env, "java/lang/Integer");
+      // Create a global reference from the local reference
+      classInteger = (*env)->NewGlobalRef(env, classIntegerLocal);
+      // No longer need the local reference, free it!
+      (*env)->DeleteLocalRef(env, classIntegerLocal);
+   }
     if (NULL == classInteger) return NULL;
-
-    // In the above program, we invoke FindClass() to find the class reference for java.lang.Integer, 
-    // and saved it in a global static variable. Nonetheless, in the next invocation, this reference is no longer valid (and not NULL). 
-    // This is because FindClass() returns a local reference, which is invalidated once the method exits.
 
     // Get the Method ID of the Integer's constructor if missing
     if (NULL == midIntegerInit) {
@@ -26,7 +27,7 @@ jobject getInteger(JNIEnv *env, jobject thisObj, jint number) {
     }
     if (NULL == midIntegerInit) return NULL;
 
-    printf("%s - classInteger[%p] midIntegerInit[%p]\n", __func__, classInteger, midIntegerInit);
+    //printf("%s - classInteger[%p] midIntegerInit[%p]\n", __func__, classInteger, midIntegerInit);
     // Call back constructor to allocate a new instance, with an int argument
     jobject newObj = (*env)->NewObject(env, classInteger, midIntegerInit, number);
     printf("In C, constructed java.lang.Integer with number %d\n", number);
