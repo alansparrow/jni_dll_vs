@@ -2,6 +2,7 @@
     "files.associations": {
         "testjniinstancevariable.h": "c",
         "testjnistaticvariable.h": "c",
-        "testjnicallbackmethod.h": "c"
+        "testjnicallbackmethod.h": "c",
+        "testjavaconstructor.h": "c"
     }
 }

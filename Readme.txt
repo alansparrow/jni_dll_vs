@@ -62,6 +62,8 @@ java -Djava.library.path=./TestJNIStaticVariable/x64/Debug TestJNIStaticVariable
 
 java -Djava.library.path=./TestJNICallBackMethod/x64/Debug TestJNICallBackMethod
 
+java -Djava.library.path=./TestJavaConstructor/x64/Debug TestJavaConstructor
+
 
 
 
