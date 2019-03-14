@@ -64,6 +64,8 @@ java -Djava.library.path=./TestJNICallBackMethod/x64/Debug TestJNICallBackMethod
 
 java -Djava.library.path=./TestJavaConstructor/x64/Debug TestJavaConstructor
 
+java -Djava.library.path=./TestJNIObjectArray/x64/Debug TestJNIObjectArray
+
 
 
 

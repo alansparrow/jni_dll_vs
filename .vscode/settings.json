@@ -3,6 +3,7 @@
         "testjniinstancevariable.h": "c",
         "testjnistaticvariable.h": "c",
         "testjnicallbackmethod.h": "c",
-        "testjavaconstructor.h": "c"
+        "testjavaconstructor.h": "c",
+        "testjniobjectarray.h": "c"
     }
 }
