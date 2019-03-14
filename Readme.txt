@@ -66,6 +66,8 @@ java -Djava.library.path=./TestJavaConstructor/x64/Debug TestJavaConstructor
 
 java -Djava.library.path=./TestJNIObjectArray/x64/Debug TestJNIObjectArray
 
+java -Djava.library.path=./TestJNIReference/x64/Debug TestJNIReference
+
 
 
 
