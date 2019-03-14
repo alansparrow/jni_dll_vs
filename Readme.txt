@@ -61,3 +61,23 @@ java -Djava.library.path=./TestJNIInstanceVariable/x64/Debug TestJNIInstanceVari
 java -Djava.library.path=./TestJNIStaticVariable/x64/Debug TestJNIStaticVariable
 
 java -Djava.library.path=./TestJNICallBackMethod/x64/Debug TestJNICallBackMethod
+
+
+
+
+Tips:
+1. Get Signature:
+javap --help
+javap -s -p TestJNICallBackMethod
+.......
+private void callback();
+   Signature: ()V
+
+private void callback(java.lang.String);
+   Signature: (Ljava/lang/String;)V
+
+private double callbackAverage(int, int);
+   Signature: (II)D
+
+private static java.lang.String callbackStatic();
+   Signature: ()Ljava/lang/String;
