@@ -15,6 +15,10 @@ jobject getInteger(JNIEnv *env, jobject thisObj, jint number) {
     }
     if (NULL == classInteger) return NULL;
 
+    // In the above program, we invoke FindClass() to find the class reference for java.lang.Integer, 
+    // and saved it in a global static variable. Nonetheless, in the next invocation, this reference is no longer valid (and not NULL). 
+    // This is because FindClass() returns a local reference, which is invalidated once the method exits.
+
     // Get the Method ID of the Integer's constructor if missing
     if (NULL == midIntegerInit) {
         printf("Get Method ID for java.lang.Integer's constructor\n");
